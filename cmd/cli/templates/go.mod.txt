@@ -2,8 +2,6 @@ module ${APP_NAME}
 
 go 1.24.3
 
-replace github.com/fouched/rapidus => ../rapidus
-
 require (
 	github.com/DATA-DOG/go-sqlmock v1.5.2
 	github.com/a-h/templ v0.3.865
