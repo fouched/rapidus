@@ -1,0 +1,42 @@
+package views
+
+import "myapp/views/layouts"
+
+templ Login() {
+    @layouts.Base("Login") {
+        <h2 class="mt-5 text-center">Login</h2>
+        <hr>
+
+        <form method="post" action="/users/login" name="login-form" id="login-form"
+                class="d-block needs-validation" autocomplete="off" novalidate="">
+
+            <input type="hidden" name="csrf_token" value={ layouts.CSRFToken(ctx) }>
+
+            <div class="mb-3">
+                <label for="email" class="form-lable">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required autocomplete="email-new">
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-lable">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required autocomplete="password-new">
+            </div>
+
+            <div class="form-check form-switch">
+                <input type="checkbox" class="form-check-input" id="remember" name="remember" value="remember">
+                <label for="remember" class="form-check-label">Remember me</label>
+            </div>
+
+            <hr>
+
+            <button type="submit" class="btn btn-primary" onclick="validate()">Login</button>
+            <p class="mt-2">
+                <small><a href="/users/forgot-password">Forgot password?</a></small>
+            </p>
+        </form>
+
+        <div class="text-center">
+            <a href="/" class="btn btn-outline-secondary">Back</a>
+        </div>
+    }
+}
